@@ -35,8 +35,15 @@ class Solution(object):
 
 
     def firstBadVersion(self, n):
+        if n <=0:
+            # should not come here
+            # assert(0)
+            return None
         if n == 1:
-            return 1
+            if self.isBadVersion(n):
+                return n
+            else:
+                return None
         if (self.isBadVersion(n) == True and self.isBadVersion(n-1) == False):
             return n
 
@@ -47,7 +54,7 @@ class Solution(object):
         pass
 
 
-n = 13  # set value of n here
+n = 12  # set value of n here
 sol = Solution()
 ret_val = sol.firstBadVersion(n)
-print (ret_val)
+print (ret_val, " is the first bad version ")
